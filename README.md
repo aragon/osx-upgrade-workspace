@@ -43,7 +43,11 @@ admin-polygon.json         osx-polygon.json
 multisig-polygon.json      token-voting-polygon.json
 ```
 
-## Summarya generation
+Clone the [DiffyScan Workspace](https://github.com/aragon/diffyscan-workspace) repo.
+
+Copy the files under `deployments` to the `deployments` folder on DiffyScan workspace.
+
+## Summary generation
 
 To show a summary of a given a Management DAO upgrade proposal:
 
