@@ -1,0 +1,43 @@
+{
+  "contracts": {
+    "0x9BC7f1dc3cFAD56a0EcD924D1f9e70f5C7aF0039": "DAOFactory",
+    "0xdD9a458088B24ed90a4BfacD16e761b01Bb56FB3": "PluginRepoFactory",
+    "0xF85b3323268431672a035E54b4DD05a5c6ee6D18": "DAORegistry",
+    "0x3ef9965BEC1D2222aee22D30b4f870fEB05c2Ee1": "PluginRepoRegistry",
+    "0xDC5E714720797Fa0B453Bc9eF5049548C79031C3": "DAO"
+  },
+  "explorer_hostname": "api-sepolia.etherscan.io",
+  "github_repo": {
+    "url": "https://github.com/aragon/osx",
+    "commit": "fc7403fcef660aa952c7e635e95257ee7f466efb",
+    "relative_root": "packages/contracts"
+  },
+  "dependencies": {
+    "@aragon/osx-commons-contracts": {
+      "url": "https://github.com/aragon/osx-commons",
+      "commit": "869045b069679fad94d640a8a3e1a1b5538cf0f0",
+      "relative_root": "contracts"
+    },
+    "@ensdomains/ens-contracts": {
+      "url": "https://github.com/ensdomains/ens-contracts",
+      "commit": "4c02c86284da256c671689fdc99ab44f4a966b4c",
+      "relative_root": ""
+    },
+    "@openzeppelin/contracts": {
+      "url": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+      "commit": "dc44c9f1a4c3b10af99492eed84f83ed244203f6",
+      "relative_root": "contracts"
+    },
+    "@openzeppelin/contracts-upgradeable": {
+      "url": "https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable",
+      "commit": "2d081f24cac1a867f6f73d512f2022e1fa987854",
+      "relative_root": "contracts"
+    }
+  },
+  "fail_on_comparison_error": true,
+  "bytecode_comparison": {
+    "hardhat_config_name": "hardhat/sepolia-config.js",
+    "constructor_calldata": {},
+    "constructor_args": {}
+  }
+}

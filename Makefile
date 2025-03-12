@@ -18,7 +18,7 @@ help: ## Display the current message
 	   if [[ "$$line" == "##" ]]; then \
 			echo "" ; \
 		elif [[ "$$line" =~ ^([^:]+):(.*)##\ (.*)$$ ]]; then \
-			echo -e "- make $${BASH_REMATCH[1]} \t\t$${BASH_REMATCH[3]}" ; \
+			echo -e "- make $${BASH_REMATCH[1]}    \t$${BASH_REMATCH[3]}" ; \
 		fi ; \
 	done
 
@@ -41,14 +41,36 @@ clean: ## Clean the generated artifacts
 .PHONY: deployment
 deployment: deployments/osx-$(network).json  ## Generate the deployment to verify with diffyscan-workspace
 
+.PHONY: summary
+summary: data/upgrade-proposal-$(network)-$(address)-$(pid)-actions-decoded.json  ## Show the decoded proposal upgrade actions
+	docker run --rm \
+    	-v ./scripts/summarize-upgrade-proposal.ts:/root/script.ts:ro \
+    	-v ./scripts/lib.ts:/root/lib.ts:ro \
+    	-v ./$<:/root/data.json:ro \
+    	denoland/deno:alpine \
+    	deno run --allow-read /root/script.ts /root/data.json
+
 # Actions => deployment config
 deployments/osx-$(network).json: data/upgrade-proposal-$(network)-$(address)-$(pid)-actions-decoded.json
 	@echo "Generating the deployment config file"
 	docker run --rm \
     	-v ./scripts/generate-upgrade-deployment-config.ts:/root/script.ts:ro \
+    	-v ./scripts/lib.ts:/root/lib.ts:ro \
+    	-v ./scripts/template-osx.json:/root/template-osx.json:ro \
+    	-v ./scripts/template-token-voting.json:/root/template-token-voting.json:ro \
+    	-v ./scripts/template-multisig.json:/root/template-multisig.json:ro \
+    	-v ./scripts/template-admin.json:/root/template-admin.json:ro \
     	-v ./$<:/root/data.json:ro \
+        -w /root \
     	denoland/deno:alpine \
-    	deno run --allow-read /root/script.ts /root/data.json > $(@)
+    	deno run --allow-read /root/script.ts /root/data.json $(network) > ./deployments/all-$(network).json
+
+	jq ".osx" ./deployments/all-$(network).json > $(@)
+	jq ".tokenVoting" ./deployments/all-$(network).json > deployments/token-voting-$(network).json
+	jq ".multisig" ./deployments/all-$(network).json > deployments/multisig-$(network).json
+	jq ".admin" ./deployments/all-$(network).json > deployments/admin-$(network).json
+
+	rm ./deployments/all-$(network).json
 
 data/upgrade-proposal-$(network)-$(address)-$(pid)-actions-decoded.json: data/upgrade-proposal-$(network)-$(address)-$(pid)-actions.json
 	@echo "Decoding action parameters"

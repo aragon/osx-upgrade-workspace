@@ -14,6 +14,7 @@ Available targets:
 - make clean 		Clean the generated artifacts
 
 - make deployment 		Generate the deployment to verify with diffyscan-workspace
+- make summary 		    Generate the deployment to verify with diffyscan-workspace
 ```
 
 
