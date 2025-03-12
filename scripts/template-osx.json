@@ -6,7 +6,7 @@
     "0x44": "PluginRepoRegistry",
     "0x55": "DAO"
   },
-  "explorer_hostname": "api-sepolia.etherscan.io",
+  "explorer_hostname": "api-<NETWORK>.etherscan.io",
   "github_repo": {
     "url": "https://github.com/aragon/osx",
     "commit": "fc7403fcef660aa952c7e635e95257ee7f466efb",
@@ -36,7 +36,7 @@
   },
   "fail_on_comparison_error": true,
   "bytecode_comparison": {
-    "hardhat_config_name": "hardhat/sepolia-config.js",
+    "hardhat_config_name": "hardhat/<NETWORK>-config.js",
     "constructor_calldata": {},
     "constructor_args": {}
   }
