@@ -2,7 +2,7 @@
   "contracts": {
     "0xFe090A3E8A4d490e29FFe3c99e35DC64DA99402B": "MultisigSetup"
   },
-  "explorer_hostname": "api-polygon.etherscan.io",
+  "explorer_hostname": "api.polygonscan.com",
   "github_repo": {
     "url": "https://github.com/aragon/multisig-plugin",
     "commit": "69874ebe11efd0e9687ba24a7e04ba7fac08012d",

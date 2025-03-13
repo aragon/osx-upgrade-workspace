@@ -2,7 +2,7 @@
   "contracts": {
     "0x80dF8908Ef80E9bf83676BAc05dE6DFCFe7EDe70": "TokenVotingSetup"
   },
-  "explorer_hostname": "api-polygon.etherscan.io",
+  "explorer_hostname": "api.polygonscan.com",
   "github_repo": {
     "url": "https://github.com/aragon/token-voting-plugin",
     "commit": "9eb9b15986db2fcb9a02c89e3aa99fe8c0292a1c",

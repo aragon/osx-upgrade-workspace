@@ -1,8 +1,8 @@
 {
   "contracts": {
-    "0xd0ee1326894Bdd3ded3dEbCBd757C3A796f21190": "AdminSetup"
+    "0xda2bAb5554a6f5e655cD0A1B46dcAFBb39742334": "AdminSetup"
   },
-  "explorer_hostname": "api.polygonscan.com",
+  "explorer_hostname": "api-sepolia.etherscan.io",
   "github_repo": {
     "url": "https://github.com/aragon/admin-plugin",
     "commit": "81db7a26668551a91077fcc23efc10dd937fcfe7",
@@ -32,7 +32,7 @@
   },
   "fail_on_comparison_error": true,
   "bytecode_comparison": {
-    "hardhat_config_name": "hardhat/polygon-config.js",
+    "hardhat_config_name": "hardhat/sepolia-config.js",
     "constructor_calldata": {},
     "constructor_args": {}
   }
