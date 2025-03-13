@@ -96,5 +96,5 @@ data/upgrade-proposal-$(network)-$(address)-$(pid)-raw.json:
 	@if [ -z "$(JSON_RPC_URL)" ]; then echo "Please, define 'JSON_RPC_URL' on .env"; exit 1 ; fi
 
 	@echo "Fetching proposal into $(@)"
-	CALLDATA=$$(cast call $(address) "getProposal(uint256)" --rpc-url "$(JSON_RPC_URL)" $(pid)) && \
+	CALLDATA=$$(cast call $(address) "getProposal(uint256)" --rpc-url $(JSON_RPC_URL) $(pid)) && \
 	   cast decode-abi --json "getProposal(uint256)(bool,uint16,tuple(uint16,uint64,uint64,uint64),tuple(address,uint256,bytes)[],uint256)" $$CALLDATA > $(@)
