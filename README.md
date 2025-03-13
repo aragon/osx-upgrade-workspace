@@ -8,15 +8,15 @@ A set of tools to verify OSx protocol upgrade proposals, as well as generating t
 ```
 $ make
 Available targets:
-- make help     Display the current message
+- make help  	 Display the current message
 
-- make init    	Check the dependencies and prepare the environment
-- make clean    Clean the generated artifacts
+- make init    Check the dependencies and prepare the environment
+- make clean   Clean the generated artifacts
 
-- make deployment   Generate the deployment to verify with diffyscan-workspace
-- make summary      Show the decoded proposal upgrade actions
+- make deployment       Generate the config to verify with diffyscan-workspace
+- make deployment-zk    Generate the config to verify with diffyscan-workspace (only ZkSync)
+- make summary          Show the decoded proposal upgrade actions
 ```
-
 
 Run `make init` to set the environment.
 
@@ -28,6 +28,8 @@ To generate the deployment configuration given a Management DAO upgrade proposal
 
 ```sh
 $ make deployment address=<multisig-plugin-addr> pid=<proposal-id> network=<name>
+# or, if targetting the ZkSync upgrade proposal
+$ make deployment-zk address=<multisig-plugin-addr> pid=<proposal-id> network=<name>
 ```
 
 Where:

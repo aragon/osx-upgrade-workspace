@@ -18,7 +18,7 @@ Example input from data/upgrade-proposal-*-actions-decoded.json
 }]
 */
 
-const EXPECTED_ACTION_COUNT = 8;
+const EXPECTED_ACTION_COUNT = 7;
 
 async function main() {
   if (Deno.args.length !== 2) {
@@ -85,9 +85,9 @@ function decodeActions(decodedActions: { decoded: string }[]) {
     decodeUpgradeToAndCall(decodedActions[4].decoded),
 
     // createVersion(uint8,address,bytes,bytes)
+    // NOTE: createVersion for admin is not present on ZkSync
     decodeCreateVersion(decodedActions[5].decoded),
     decodeCreateVersion(decodedActions[6].decoded),
-    decodeCreateVersion(decodedActions[7].decoded),
   ] as const;
 }
 
@@ -111,13 +111,13 @@ function checkActions(actions: ReturnType<typeof decodeActions>) {
   }
 
   // createVersion(uint8,address,bytes,bytes)
+  // NOTE: createVersion for admin is not present on ZkSync
   if (actions[5].release !== "1")
     throw new Error("Incorrect release: " + actions[5].release);
   else if (actions[6].release !== "1")
     throw new Error("Incorrect release: " + actions[6].release);
-  else if (actions[7].release !== "1")
-    throw new Error("Incorrect release: " + actions[5].release);
 
+  // NOTE: createVersion for admin is not present on ZkSync
   if (!actions[5].buildMetadata.startsWith("ipfs://"))
     throw new Error(
       "Incorrect build metadata link: " + actions[5].buildMetadata,
@@ -126,11 +126,8 @@ function checkActions(actions: ReturnType<typeof decodeActions>) {
     throw new Error(
       "Incorrect build metadata link: " + actions[6].buildMetadata,
     );
-  else if (!actions[7].buildMetadata.startsWith("ipfs://"))
-    throw new Error(
-      "Incorrect build metadata link: " + actions[7].buildMetadata,
-    );
 
+  // NOTE: createVersion for admin is not present on ZkSync
   if (!actions[5].releaseMetadata.startsWith("ipfs://"))
     throw new Error(
       "Incorrect release metadata link: " + actions[5].releaseMetadata,
@@ -138,10 +135,6 @@ function checkActions(actions: ReturnType<typeof decodeActions>) {
   else if (!actions[6].releaseMetadata.startsWith("ipfs://"))
     throw new Error(
       "Incorrect release metadata link: " + actions[6].releaseMetadata,
-    );
-  else if (!actions[7].releaseMetadata.startsWith("ipfs://"))
-    throw new Error(
-      "Incorrect release metadata link: " + actions[7].releaseMetadata,
     );
 }
 
@@ -182,6 +175,8 @@ function extractAddresses(actions: ReturnType<typeof decodeActions>) {
   addr = actions[4].implementation;
   result.osx[addr] = "DAO";
 
+  // NOTE: createVersion for admin is not present on ZkSync
+
   // 6
   // Publishes the AdminSetup
   addr = actions[5].pluginSetup;
@@ -191,11 +186,6 @@ function extractAddresses(actions: ReturnType<typeof decodeActions>) {
   // Publishes the MultisigSetup
   addr = actions[6].pluginSetup;
   result.multisig[addr] = "MultisigSetup";
-
-  // 8
-  // Publishes the TokenVotingSetup
-  addr = actions[7].pluginSetup;
-  result.tokenVoting[addr] = "TokenVotingSetup";
 
   return result;
 }

@@ -5,6 +5,10 @@ include .env
 
 SHELL:=/bin/bash
 
+# Target dependent variables
+deployment: export GENERATION_SCRIPT=generate-upgrade-deployment-config.ts
+deployment-zk: export GENERATION_SCRIPT=generate-upgrade-deployment-config-zksync.ts
+
 # TARGETS
 
 .PHONY: help
@@ -14,7 +18,7 @@ help: ## Display the current message
 	   if [[ "$$line" == "##" ]]; then \
 			echo "" ; \
 		elif [[ "$$line" =~ ^([^:]+):(.*)##\ (.*)$$ ]]; then \
-			echo -e "- make $${BASH_REMATCH[1]}    \t$${BASH_REMATCH[3]}" ; \
+			echo -e "- make $${BASH_REMATCH[1]}  \t$${BASH_REMATCH[3]}" ; \
 		fi ; \
 	done
 
@@ -37,7 +41,10 @@ clean: ## Clean the generated artifacts
 # Entry points
 
 .PHONY: deployment
-deployment: deployments/osx-$(network).json  ## Generate the deployment to verify with diffyscan-workspace
+deployment: deployments/osx-$(network).json  ## Generate the config to verify with diffyscan-workspace
+
+.PHONY: deployment-zk
+deployment-zk: deployments/osx-$(network).json  ## Generate the config to verify with diffyscan-workspace (only ZkSync)
 
 .PHONY: summary
 summary: data/upgrade-proposal-$(network)-$(address)-$(pid)-actions-decoded.json  ## Show the decoded proposal upgrade actions
@@ -54,7 +61,7 @@ summary: data/upgrade-proposal-$(network)-$(address)-$(pid)-actions-decoded.json
 deployments/osx-$(network).json: data/upgrade-proposal-$(network)-$(address)-$(pid)-actions-decoded.json
 	@echo "Generating the deployment config file"
 	docker run --rm \
-    	-v ./scripts/generate-upgrade-deployment-config.ts:/root/script.ts:ro \
+    	-v ./scripts/$(GENERATION_SCRIPT):/root/script.ts:ro \
     	-v ./scripts/lib.ts:/root/lib.ts:ro \
     	-v ./scripts/template-osx.json:/root/template-osx.json:ro \
     	-v ./scripts/template-token-voting.json:/root/template-token-voting.json:ro \

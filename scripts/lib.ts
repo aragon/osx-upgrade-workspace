@@ -1,10 +1,18 @@
-export const APPLY_MULTITARGET_PREFIX =
+export type Addresses = { [k: string]: string };
+
+const OSX_CONFIG_TEMPLATE = "template-osx.json";
+const TOKEN_VOTING_CONFIG_TEMPLATE = "template-token-voting.json";
+const MULTISIG_CONFIG_TEMPLATE = "template-multisig.json";
+const ADMIN_CONFIG_TEMPLATE = "template-admin.json";
+
+const APPLY_MULTITARGET_PREFIX =
   '1) \"applyMultiTargetPermissions((uint8,address,address,address,bytes32)[])\"\n';
-export const UPGRADE_TO_PREFIX = '1) \"upgradeTo(address)\"\n';
-export const UPGRADE_TO_AND_CALL_PREFIX =
-  '1) \"upgradeToAndCall(address,bytes)\"\n';
-export const CREATE_VERSION_PREFIX =
+const UPGRADE_TO_PREFIX = '1) \"upgradeTo(address)\"\n';
+const UPGRADE_TO_AND_CALL_PREFIX = '1) \"upgradeToAndCall(address,bytes)\"\n';
+const CREATE_VERSION_PREFIX =
   '1) \"createVersion(uint8,address,bytes,bytes)\"\n';
+
+// ABI DECODING
 
 export function decodeApplyMultiTargetPermissions(data: string) {
   if (!data.startsWith(APPLY_MULTITARGET_PREFIX)) {
@@ -100,6 +108,57 @@ export function decodeCreateVersion(data: string) {
     buildMetadata: hexToString(params[2]),
     releaseMetadata: hexToString(params[3]),
   };
+}
+
+// CONFIG
+
+export async function generateOSxConfig(addresses: Addresses, network: string) {
+  const strTemplate = await readTemplate(OSX_CONFIG_TEMPLATE, network);
+  const template = JSON.parse(strTemplate);
+
+  Object.assign(template, { contracts: addresses });
+  return template;
+}
+
+export async function generateTokenVotingConfig(
+  addresses: Addresses,
+  network: string,
+) {
+  const strTemplate = await readTemplate(TOKEN_VOTING_CONFIG_TEMPLATE, network);
+  const template = JSON.parse(strTemplate);
+
+  Object.assign(template, { contracts: addresses });
+  return template;
+}
+
+export async function generateMultisigConfig(
+  addresses: Addresses,
+  network: string,
+) {
+  const strTemplate = await readTemplate(MULTISIG_CONFIG_TEMPLATE, network);
+  const template = JSON.parse(strTemplate);
+
+  Object.assign(template, { contracts: addresses });
+  return template;
+}
+
+export async function generateAdminConfig(
+  addresses: Addresses,
+  network: string,
+) {
+  const strTemplate = await readTemplate(ADMIN_CONFIG_TEMPLATE, network);
+  const template = JSON.parse(strTemplate);
+
+  Object.assign(template, { contracts: addresses });
+  return template;
+}
+
+export async function readTemplate(
+  path: string,
+  network: string,
+): Promise<string> {
+  const strTemplate = await Deno.readTextFile(path);
+  return strTemplate.replaceAll(/\<NETWORK\>/g, network);
 }
 
 // Helpers
