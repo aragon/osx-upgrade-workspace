@@ -4,10 +4,6 @@
 include .env
 
 SHELL:=/bin/bash
-validate_deployment = $(if $(findstring $(1),$(AVAILABLE_DEPLOYMENTS)),,$(error "Invalid deployment target: $(1). The allowed deployment targets are: $(AVAILABLE_DEPLOYMENTS)"))
-ensure_file = $(if $(wildcard $(1)),,$(error "Required file not found: $(1)"))
-DIFFYSCAN_PARAMS_FILE = diffyscan-params.json
-
 
 # TARGETS
 
@@ -38,6 +34,8 @@ clean: ## Clean the generated artifacts
 
 ##
 
+# Entry points
+
 .PHONY: deployment
 deployment: deployments/osx-$(network).json  ## Generate the deployment to verify with diffyscan-workspace
 
@@ -50,7 +48,9 @@ summary: data/upgrade-proposal-$(network)-$(address)-$(pid)-actions-decoded.json
     	denoland/deno:alpine \
     	deno run --allow-read /root/script.ts /root/data.json
 
-# Actions => deployment config
+# Internal targets
+
+# Deployment config <= Decoded proposal actions
 deployments/osx-$(network).json: data/upgrade-proposal-$(network)-$(address)-$(pid)-actions-decoded.json
 	@echo "Generating the deployment config file"
 	docker run --rm \
@@ -72,6 +72,7 @@ deployments/osx-$(network).json: data/upgrade-proposal-$(network)-$(address)-$(p
 
 	rm ./deployments/all-$(network).json
 
+# Decoded proposal actions <= Proposal raw actions
 data/upgrade-proposal-$(network)-$(address)-$(pid)-actions-decoded.json: data/upgrade-proposal-$(network)-$(address)-$(pid)-actions.json
 	@echo "Decoding action parameters"
 	jq -r '.[] | "cast 4byte-decode \(.data)"' $< | while read cmd; do \
@@ -79,7 +80,7 @@ data/upgrade-proposal-$(network)-$(address)-$(pid)-actions-decoded.json: data/up
 	  jq -n --arg data "$$data" '{"decoded": $$ARGS.named.data}' ; \
 	done | jq -s '.' > $(@)
 
-# Proposal data => Actions
+# Proposal raw actions <= Proposal raw data
 data/upgrade-proposal-$(network)-$(address)-$(pid)-actions.json: data/upgrade-proposal-$(network)-$(address)-$(pid)-raw.json
 	@echo "Parsing proposal actions"
 	docker run --rm \
