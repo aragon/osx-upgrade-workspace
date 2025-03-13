@@ -1,7 +1,5 @@
 {
-  "contracts": {
-    "0x51fAaE63b016481109dBe44d849FC73602e9268b": "AdminSetup"
-  },
+  "contracts": {},
   "explorer_hostname": "api-zksyncsepolia.etherscan.io",
   "github_repo": {
     "url": "https://github.com/aragon/admin-plugin",

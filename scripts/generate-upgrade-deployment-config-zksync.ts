@@ -176,16 +176,17 @@ function extractAddresses(actions: ReturnType<typeof decodeActions>) {
   result.osx[addr] = "DAO";
 
   // NOTE: createVersion for admin is not present on ZkSync
+  // result.admin[addr] = "AdminSetup";
 
   // 6
   // Publishes the AdminSetup
   addr = actions[5].pluginSetup;
-  result.admin[addr] = "AdminSetup";
+  result.multisig[addr] = "MultisigSetup";
 
   // 7
   // Publishes the MultisigSetup
   addr = actions[6].pluginSetup;
-  result.multisig[addr] = "MultisigSetup";
+  result.tokenVoting[addr] = "TokenVotingSetup";
 
   return result;
 }

@@ -1,5 +1,7 @@
 {
-  "contracts": {},
+  "contracts": {
+    "0x53E3c8379Ee977a58443Fa754Fb76bD34379F4e1": "TokenVotingSetup"
+  },
   "explorer_hostname": "api-zksyncsepolia.etherscan.io",
   "github_repo": {
     "url": "https://github.com/aragon/token-voting-plugin",

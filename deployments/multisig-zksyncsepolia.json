@@ -1,6 +1,6 @@
 {
   "contracts": {
-    "0x53E3c8379Ee977a58443Fa754Fb76bD34379F4e1": "MultisigSetup"
+    "0x51fAaE63b016481109dBe44d849FC73602e9268b": "MultisigSetup"
   },
   "explorer_hostname": "api-zksyncsepolia.etherscan.io",
   "github_repo": {
