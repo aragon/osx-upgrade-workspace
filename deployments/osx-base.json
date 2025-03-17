@@ -1,0 +1,43 @@
+{
+  "contracts": {
+    "0xcc602EA573a42eBeC290f33F49D4A87177ebB8d2": "DAOFactory",
+    "0xAAAb8c6b83a5C7b1462af4427d97b33197388C38": "PluginRepoFactory",
+    "0xB88fE875623E33BFDa76A517e9d5DC2023995f73": "DAORegistry",
+    "0x9d4669361461443eB25A29b79C68C8AC906D8cC1": "PluginRepoRegistry",
+    "0xBeb2271224D22BdA388B513268873387E5BfC27f": "DAO"
+  },
+  "explorer_hostname": "api.basecan.org",
+  "github_repo": {
+    "url": "https://github.com/aragon/osx",
+    "commit": "fc7403fcef660aa952c7e635e95257ee7f466efb",
+    "relative_root": "packages/contracts"
+  },
+  "dependencies": {
+    "@aragon/osx-commons-contracts": {
+      "url": "https://github.com/aragon/osx-commons",
+      "commit": "869045b069679fad94d640a8a3e1a1b5538cf0f0",
+      "relative_root": "contracts"
+    },
+    "@ensdomains/ens-contracts": {
+      "url": "https://github.com/ensdomains/ens-contracts",
+      "commit": "4c02c86284da256c671689fdc99ab44f4a966b4c",
+      "relative_root": ""
+    },
+    "@openzeppelin/contracts": {
+      "url": "https://github.com/OpenZeppelin/openzeppelin-contracts",
+      "commit": "dc44c9f1a4c3b10af99492eed84f83ed244203f6",
+      "relative_root": "contracts"
+    },
+    "@openzeppelin/contracts-upgradeable": {
+      "url": "https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable",
+      "commit": "2d081f24cac1a867f6f73d512f2022e1fa987854",
+      "relative_root": "contracts"
+    }
+  },
+  "fail_on_comparison_error": true,
+  "bytecode_comparison": {
+    "hardhat_config_name": "hardhat/base-config.js",
+    "constructor_calldata": {},
+    "constructor_args": {}
+  }
+}
