@@ -1,3 +1,4 @@
 .env
 digest
 data/*json
+deployments/all-*.json
