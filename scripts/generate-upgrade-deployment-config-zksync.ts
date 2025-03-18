@@ -151,29 +151,31 @@ function extractAddresses(actions: ReturnType<typeof decodeActions>) {
   // 1
   // Grant the REGISTER_DAO_PERMISSION_ID permission on the DAORegistry to the new DAOFactory
   addr = actions[0][0].who;
-  result.osx[addr] = "DAOFactory";
+  result.osx[addr] = "src/framework/dao/DAOFactory.sol:DAOFactory";
 
   // 2
   // Moves the REGISTER_PLUGIN_REPO_PERMISSION_ID permission on the PluginRepoRegistry from the old PluginRepoFactory to the new PluginRepoFactory
   // addr = actions[1][1].where;
   // result.osx[addr] = "PluginRepoRegistry";
   addr = actions[1][1].who;
-  result.osx[addr] = "PluginRepoFactory";
+  result.osx[addr] =
+    "src/framework/plugin/repo/PluginRepoFactory.sol:PluginRepoFactory";
 
   // 3
   // Upgrade the DaoRegistry to the new implementation
   addr = actions[2].implementation;
-  result.osx[addr] = "DAORegistry";
+  result.osx[addr] = "src/framework/dao/DAORegistry.sol:DAORegistry";
 
   // 4
   // Upgrade the PluginRepoRegistry to the new implementation
   addr = actions[3].implementation;
-  result.osx[addr] = "PluginRepoRegistry";
+  result.osx[addr] =
+    "src/framework/plugin/repo/PluginRepoRegistry.sol:PluginRepoRegistry";
 
   // 5
   // Upgrade the management DAO to the new implementation
   addr = actions[4].implementation;
-  result.osx[addr] = "DAO";
+  result.osx[addr] = "src/core/dao/DAO.sol:DAO";
 
   // NOTE: createVersion for admin is not present on ZkSync
   // result.admin[addr] = "AdminSetup";
@@ -181,12 +183,13 @@ function extractAddresses(actions: ReturnType<typeof decodeActions>) {
   // 6
   // Publishes the AdminSetup
   addr = actions[5].pluginSetup;
-  result.multisig[addr] = "MultisigSetup";
+  result.multisig[addr] = "src/MultisigSetup.sol:MultisigSetup";
 
   // 7
   // Publishes the MultisigSetup
   addr = actions[6].pluginSetup;
-  result.tokenVoting[addr] = "TokenVotingSetup";
+  result.tokenVoting[addr] =
+    "src/TokenVotingSetupZkSync.sol:TokenVotingSetupZkSync";
 
   return result;
 }

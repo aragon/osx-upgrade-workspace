@@ -1,6 +1,6 @@
 {
   "contracts": {
-    "0x53E3c8379Ee977a58443Fa754Fb76bD34379F4e1": "TokenVotingSetup"
+    "0x53E3c8379Ee977a58443Fa754Fb76bD34379F4e1": "src/TokenVotingSetupZkSync.sol:TokenVotingSetupZkSync"
   },
   "explorer_hostname": "block-explorer-api.sepolia.zksync.dev",
   "github_repo": {

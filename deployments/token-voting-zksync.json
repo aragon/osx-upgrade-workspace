@@ -1,6 +1,6 @@
 {
   "contracts": {
-    "0x79a5376c6275374F3Db0F0433CE4B48a6d3E33a5": "TokenVotingSetup"
+    "0x79a5376c6275374F3Db0F0433CE4B48a6d3E33a5": "src/TokenVotingSetupZkSync.sol:TokenVotingSetupZkSync"
   },
   "explorer_hostname": "block-explorer-api.mainnet.zksync.io",
   "github_repo": {

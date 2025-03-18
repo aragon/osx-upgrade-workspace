@@ -1,10 +1,10 @@
 {
   "contracts": {
-    "0x01019505E3B87340d7Fa69EF3E2510A7642f067A": "DAOFactory",
-    "0x0326fcf5260Ad26BFb5fC49B9F2D34889eC1Cc30": "PluginRepoFactory",
-    "0x7D4ed0ECf26d59eC9876072a4D54552d465C2fA0": "DAORegistry",
-    "0x22bd3d99a14D5C0316Ad6AA1C37c6bF1e1b69372": "PluginRepoRegistry",
-    "0x9B43625b28fa32CaB68d84F1B46E2721DD70Ba42": "DAO"
+    "0x01019505E3B87340d7Fa69EF3E2510A7642f067A": "src/framework/dao/DAOFactory.sol:DAOFactory",
+    "0x0326fcf5260Ad26BFb5fC49B9F2D34889eC1Cc30": "src/framework/plugin/repo/PluginRepoFactory.sol:PluginRepoFactory",
+    "0x7D4ed0ECf26d59eC9876072a4D54552d465C2fA0": "src/framework/dao/DAORegistry.sol:DAORegistry",
+    "0x22bd3d99a14D5C0316Ad6AA1C37c6bF1e1b69372": "src/framework/plugin/repo/PluginRepoRegistry.sol:PluginRepoRegistry",
+    "0x9B43625b28fa32CaB68d84F1B46E2721DD70Ba42": "src/core/dao/DAO.sol:DAO"
   },
   "explorer_hostname": "block-explorer-api.mainnet.zksync.io",
   "github_repo": {

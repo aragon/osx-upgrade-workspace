@@ -1,5 +1,7 @@
 {
-  "contracts": {},
+  "contracts": {
+    "0x75CABEE54a1CD7Dea3CCaBDE04fA30A2695fb9c0": "src/zkSync/AdminSetupZkSync.sol:AdminSetupZkSync"
+  },
   "explorer_hostname": "block-explorer-api.mainnet.zksync.io",
   "github_repo": {
     "url": "https://github.com/aragon/admin-plugin",

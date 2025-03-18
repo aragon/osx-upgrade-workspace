@@ -1,6 +1,6 @@
 {
   "contracts": {
-    "0x3c34485B2CBF3a2cd3633B1Ffa95151aE472cAdd": "MultisigSetup"
+    "0x3c34485B2CBF3a2cd3633B1Ffa95151aE472cAdd": "src/MultisigSetup.sol:MultisigSetup"
   },
   "explorer_hostname": "block-explorer-api.mainnet.zksync.io",
   "github_repo": {
