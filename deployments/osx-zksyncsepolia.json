@@ -6,7 +6,7 @@
     "0xBE3238ee459a00Fd83A173fE70FAe60a06AF7077": "PluginRepoRegistry",
     "0x39e836A6c32163733929B213965e3feC0007914a": "DAO"
   },
-  "explorer_hostname": "api-zksyncsepolia.etherscan.io",
+  "explorer_hostname": "block-explorer-api.sepolia.zksync.dev",
   "github_repo": {
     "url": "https://github.com/aragon/osx",
     "commit": "fc7403fcef660aa952c7e635e95257ee7f466efb",
@@ -36,7 +36,6 @@
   },
   "fail_on_comparison_error": true,
   "bytecode_comparison": {
-    "hardhat_config_name": "hardhat/zksyncsepolia-config.js",
     "constructor_calldata": {},
     "constructor_args": {}
   }

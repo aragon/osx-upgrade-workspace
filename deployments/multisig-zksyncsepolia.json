@@ -2,7 +2,7 @@
   "contracts": {
     "0x51fAaE63b016481109dBe44d849FC73602e9268b": "MultisigSetup"
   },
-  "explorer_hostname": "api-zksyncsepolia.etherscan.io",
+  "explorer_hostname": "block-explorer-api.sepolia.zksync.dev",
   "github_repo": {
     "url": "https://github.com/aragon/multisig-plugin",
     "commit": "69874ebe11efd0e9687ba24a7e04ba7fac08012d",
@@ -32,7 +32,6 @@
   },
   "fail_on_comparison_error": true,
   "bytecode_comparison": {
-    "hardhat_config_name": "hardhat/zksyncsepolia-config.js",
     "constructor_calldata": {},
     "constructor_args": {}
   }

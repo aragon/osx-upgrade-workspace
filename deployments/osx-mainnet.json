@@ -36,7 +36,6 @@
   },
   "fail_on_comparison_error": true,
   "bytecode_comparison": {
-    "hardhat_config_name": "hardhat/mainnet-config.js",
     "constructor_calldata": {},
     "constructor_args": {}
   }

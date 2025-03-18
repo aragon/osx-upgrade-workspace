@@ -1,6 +1,6 @@
 {
   "contracts": {},
-  "explorer_hostname": "api-zksyncsepolia.etherscan.io",
+  "explorer_hostname": "block-explorer-api.sepolia.zksync.dev",
   "github_repo": {
     "url": "https://github.com/aragon/admin-plugin",
     "commit": "81db7a26668551a91077fcc23efc10dd937fcfe7",
@@ -30,7 +30,6 @@
   },
   "fail_on_comparison_error": true,
   "bytecode_comparison": {
-    "hardhat_config_name": "hardhat/zksyncsepolia-config.js",
     "constructor_calldata": {},
     "constructor_args": {}
   }
