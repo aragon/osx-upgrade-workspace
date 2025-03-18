@@ -2,7 +2,7 @@
   "contracts": {
     "0x22AcB9E87f5edC9f52504Fb95d82adD5aae9EC34": "TokenVotingSetup"
   },
-  "explorer_hostname": "api.basecan.org",
+  "explorer_hostname": "api.basescan.org",
   "github_repo": {
     "url": "https://github.com/aragon/token-voting-plugin",
     "commit": "9eb9b15986db2fcb9a02c89e3aa99fe8c0292a1c",

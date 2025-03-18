@@ -6,7 +6,7 @@
     "0x9d4669361461443eB25A29b79C68C8AC906D8cC1": "PluginRepoRegistry",
     "0xBeb2271224D22BdA388B513268873387E5BfC27f": "DAO"
   },
-  "explorer_hostname": "api.basecan.org",
+  "explorer_hostname": "api.basescan.org",
   "github_repo": {
     "url": "https://github.com/aragon/osx",
     "commit": "fc7403fcef660aa952c7e635e95257ee7f466efb",

@@ -2,7 +2,7 @@
   "contracts": {
     "0x246503df057A9a85E0144b6867a828c99676128B": "AdminSetup"
   },
-  "explorer_hostname": "api.basecan.org",
+  "explorer_hostname": "api.basescan.org",
   "github_repo": {
     "url": "https://github.com/aragon/admin-plugin",
     "commit": "81db7a26668551a91077fcc23efc10dd937fcfe7",

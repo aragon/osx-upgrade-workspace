@@ -2,7 +2,7 @@
   "contracts": {
     "0xcf59C627b7a4052041C4F16B4c635a960e29554A": "MultisigSetup"
   },
-  "explorer_hostname": "api.basecan.org",
+  "explorer_hostname": "api.basescan.org",
   "github_repo": {
     "url": "https://github.com/aragon/multisig-plugin",
     "commit": "69874ebe11efd0e9687ba24a7e04ba7fac08012d",
