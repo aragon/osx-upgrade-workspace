@@ -5,11 +5,12 @@ const TOKEN_VOTING_CONFIG_TEMPLATE = "template-token-voting.json";
 const MULTISIG_CONFIG_TEMPLATE = "template-multisig.json";
 const ADMIN_CONFIG_TEMPLATE = "template-admin.json";
 
-const APPLY_MULTITARGET_PREFIX =
+export const APPLY_MULTITARGET_PREFIX =
   '1) \"applyMultiTargetPermissions((uint8,address,address,address,bytes32)[])\"\n';
-const UPGRADE_TO_PREFIX = '1) \"upgradeTo(address)\"\n';
-const UPGRADE_TO_AND_CALL_PREFIX = '1) \"upgradeToAndCall(address,bytes)\"\n';
-const CREATE_VERSION_PREFIX =
+export const UPGRADE_TO_PREFIX = '1) \"upgradeTo(address)\"\n';
+export const UPGRADE_TO_AND_CALL_PREFIX =
+  '1) \"upgradeToAndCall(address,bytes)\"\n';
+export const CREATE_VERSION_PREFIX =
   '1) \"createVersion(uint8,address,bytes,bytes)\"\n';
 
 // ABI DECODING
